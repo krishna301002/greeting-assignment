@@ -1,12 +1,14 @@
 public class Greeting {
-    private String name;
+    private final String name;
 
     public Greeting(String name) {
         this.name = name;
     }
 
     public String greet() {
-
-        return "Hello, "+this.name;
+        if (name == null) {
+            return "Hello, my friend";
+        }
+        return "Hello, " + this.name;
     }
 }

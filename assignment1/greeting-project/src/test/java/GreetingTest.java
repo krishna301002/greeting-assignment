@@ -10,4 +10,12 @@ public class GreetingTest {
 
         assertEquals("Hello, Bob", resultGreeting);
     }
+
+    @Test
+    void shouldHandleNullName() {
+        Greeting greeting = new Greeting(null);
+        String greet = greeting.greet();
+
+        assertEquals("Hello, my friend", greet);
+    }
 }
