@@ -1,19 +1,21 @@
-import static java.lang.Character.isUpperCase;
-
 public class Greeting {
-    private final String name;
+    private final String[] names;
+    private final StringBuilder greeting;
 
-    public Greeting(String name) {
-        this.name = name;
+    public Greeting(String[] names) {
+        this.names = names;
+        greeting = new StringBuilder();
     }
 
     public String greet() {
-        if (name == null) {
-            return "Hello, my friend";
+        if (names == null) greeting.append("Hello, my friend");
+        if (names != null && names.length == 1) {
+            if (names[0].equals(names[0].toUpperCase())) greeting.append("HELLO ").append(names[0]).append("!");
+            else greeting.append("Hello, ").append(names[0]);
         }
-        if (name.equals(name.toUpperCase())) {
-            return "HELLO " + this.name + "!";
+        if (names != null && names.length == 2) {
+            greeting.append("Hello, ").append(names[0]).append(" and ").append(names[1]);
         }
-        return "Hello, " + this.name;
+        return greeting.toString();
     }
 }
