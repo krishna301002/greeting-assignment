@@ -18,4 +18,12 @@ public class GreetingTest {
 
         assertEquals("Hello, my friend", greet);
     }
+
+    @Test
+    void shouldShoutWhenNameIsUppercase() {
+        Greeting greeting = new Greeting("JERRY");
+        String greet = greeting.greet();
+
+        assertEquals("HELLO JERRY!", greet);
+    }
 }

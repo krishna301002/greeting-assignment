@@ -1,3 +1,5 @@
+import static java.lang.Character.isUpperCase;
+
 public class Greeting {
     private final String name;
 
@@ -8,6 +10,9 @@ public class Greeting {
     public String greet() {
         if (name == null) {
             return "Hello, my friend";
+        }
+        if (name.equals(name.toUpperCase())) {
+            return "HELLO " + this.name + "!";
         }
         return "Hello, " + this.name;
     }
