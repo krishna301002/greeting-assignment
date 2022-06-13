@@ -10,7 +10,7 @@ public class GreetingTest {
         Greeting greeting = new Greeting(names);
         String resultGreeting = greeting.greet();
 
-        assertEquals("Hello, Bob.", resultGreeting);
+        assertEquals("Hello, Bob", resultGreeting);
     }
 
     @Test
@@ -18,7 +18,7 @@ public class GreetingTest {
         Greeting greeting = new Greeting(null);
         String greet = greeting.greet();
 
-        assertEquals("Hello, my friend.", greet);
+        assertEquals("Hello, my friend", greet);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class GreetingTest {
         Greeting greeting = new Greeting(names);
         String greet = greeting.greet();
 
-        assertEquals("Hello, Jill and Jane.", greet);
+        assertEquals("Hello, Jill and Jane", greet);
     }
 
     @Test
@@ -45,6 +45,6 @@ public class GreetingTest {
         Greeting greeting = new Greeting(names);
         String greet = greeting.greet();
 
-        assertEquals("Hello, Amy, Brian, and Charlotte.", greet);
+        assertEquals("Hello, Amy, Brian, and Charlotte", greet);
     }
 }
