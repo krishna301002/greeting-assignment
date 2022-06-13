@@ -8,6 +8,7 @@ public class GreetingTest {
     void shouldReturnGreetingWithName() {
         String[] names = {"Bob"};
         Greeting greeting = new Greeting(names);
+
         String resultGreeting = greeting.greet();
 
         assertEquals("Hello, Bob.", resultGreeting);
@@ -16,6 +17,7 @@ public class GreetingTest {
     @Test
     void shouldHandleNullName() {
         Greeting greeting = new Greeting(null);
+
         String greet = greeting.greet();
 
         assertEquals("Hello, my friend.", greet);
@@ -25,6 +27,7 @@ public class GreetingTest {
     void shouldShoutWhenNameIsUppercase() {
         String[] names = {"JERRY"};
         Greeting greeting = new Greeting(names);
+
         String greet = greeting.greet();
 
         assertEquals("HELLO JERRY!", greet);
@@ -34,6 +37,7 @@ public class GreetingTest {
     void shouldGreetMoreThanOneName() {
         String[] names = {"Jill", "Jane"};
         Greeting greeting = new Greeting(names);
+
         String greet = greeting.greet();
 
         assertEquals("Hello, Jill and Jane.", greet);
@@ -43,6 +47,7 @@ public class GreetingTest {
     void shouldGreetWhenArbitraryNumberOfNamesIsGiven() {
         String[] names = {"Amy", "Brian", "Charlotte"};
         Greeting greeting = new Greeting(names);
+
         String greet = greeting.greet();
 
         assertEquals("Hello, Amy, Brian, and Charlotte.", greet);
@@ -52,6 +57,7 @@ public class GreetingTest {
     void shouldGreetNormalAndShoutedNamesWhenBothTypeOfNamesAreMixed() {
         String[] names = {"Amy", "BRIAN", "Charlotte"};
         Greeting greeting = new Greeting(names);
+
         String greet = greeting.greet();
 
         assertEquals("Hello, Amy and Charlotte. AND HELLO BRIAN!", greet);
@@ -61,6 +67,7 @@ public class GreetingTest {
     void shouldGreetWhenTheNamesOrOneOfTheNamesAreGivenAsSingleStringSeparatedByComma() {
         String[] names = {"Bob", "Charlie, Dianne"};
         Greeting greeting = new Greeting(names);
+
         String greet = greeting.greet();
 
         assertEquals("Hello, Bob, Charlie, and Dianne.", greet);
@@ -70,6 +77,7 @@ public class GreetingTest {
     void shouldGreetTheNamesTogetherWhenTheNamesAreGivenWithIntentionalCommas() {
         String[] names = {"Bob", "\"Charlie, Dianne\""};
         Greeting greeting = new Greeting(names);
+
         String greet = greeting.greet();
 
         assertEquals("Hello, Bob and Charlie, Dianne.", greet);
