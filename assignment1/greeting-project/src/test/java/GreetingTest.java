@@ -38,4 +38,13 @@ public class GreetingTest {
 
         assertEquals("Hello, Jill and Jane", greet);
     }
+
+    @Test
+    void shouldGreetWhenArbitraryNumberOfNamesIsGiven() {
+        String[] names = {"Amy", "Brian", "Charlotte"};
+        Greeting greeting = new Greeting(names);
+        String greet = greeting.greet();
+
+        assertEquals("Hello, Amy, Brian, and Charlotte", greet);
+    }
 }
