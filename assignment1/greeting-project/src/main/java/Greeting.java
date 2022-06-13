@@ -24,10 +24,12 @@ public class Greeting {
             for (int i = 0; i < Objects.requireNonNull(names).length; i++) {
                 if (names[i].equals(names[i].toUpperCase())) loudNames.add(names[i]);
                 else {
-                    if (names[i].contains(",")) {
+                    if (names[i].contains(",") && !names[i].contains("\"")) {
                         String[] splitNames = names[i].split(",\\s", 0);
                         Collections.addAll(normalNames, splitNames);
-
+                    } else if (names[i].contains("\"")) {
+                        String intentionalCommaNames = names[i].replaceAll("[\"]+", "");
+                        normalNames.add(intentionalCommaNames);
                     } else {
                         normalNames.add(names[i]);
                     }
