@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -16,15 +17,21 @@ public class Greeting {
         else if (names.length == 1) {
             if (names[0].equals(names[0].toUpperCase())) greeting.append("HELLO ").append(names[0]).append("!");
             else greeting.append("Hello, ").append(names[0]).append(".");
-        } else if (names.length == 2) {
-            greeting.append("Hello, ").append(names[0]).append(" and ").append(names[1]).append(".");
         } else {
             greeting.append("Hello");
             List<String> loudNames = new ArrayList<>();
             List<String> normalNames = new ArrayList<>();
             for (int i = 0; i < Objects.requireNonNull(names).length; i++) {
                 if (names[i].equals(names[i].toUpperCase())) loudNames.add(names[i]);
-                else normalNames.add(names[i]);
+                else {
+                    if (names[i].contains(",")) {
+                        String[] splitNames = names[i].split(",\\s", 0);
+                        Collections.addAll(normalNames, splitNames);
+
+                    } else {
+                        normalNames.add(names[i]);
+                    }
+                }
             }
             if (normalNames.size() == 2) {
                 greeting.append(", ").append(normalNames.get(0)).append(" and ").append(normalNames.get(1)).append(".");

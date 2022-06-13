@@ -56,4 +56,13 @@ public class GreetingTest {
 
         assertEquals("Hello, Amy and Charlotte. AND HELLO BRIAN!", greet);
     }
+
+    @Test
+    void shouldGreetWhenTheNamesOrOneOfTheNamesAreGivenAsSingleStringSeparatedByComma() {
+        String[] names = {"Bob", "Charlie, Dianne"};
+        Greeting greeting = new Greeting(names);
+        String greet = greeting.greet();
+
+        assertEquals("Hello, Bob, Charlie, and Dianne.", greet);
+    }
 }
