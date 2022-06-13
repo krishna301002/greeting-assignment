@@ -47,4 +47,13 @@ public class GreetingTest {
 
         assertEquals("Hello, Amy, Brian, and Charlotte.", greet);
     }
+
+    @Test
+    void shouldGreetNormalAndShoutedNamesWhenBothTypeOfNamesAreMixed() {
+        String[] names = {"Amy", "BRIAN", "Charlotte"};
+        Greeting greeting = new Greeting(names);
+        String greet = greeting.greet();
+
+        assertEquals("Hello, Amy and Charlotte. AND HELLO BRIAN!", greet);
+    }
 }
